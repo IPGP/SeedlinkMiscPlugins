@@ -6,7 +6,7 @@ ASCII based Plugins for an easier integration of slow data in Seedlink
 - [A.1) Seiscomp3 and SeedLink]()  
 - [A.2) miscSerial and miscScript : ASCII based plugins]()
 
-[B) Compile serial_plugin with embedded miscScript/miscSerial]()  
+[B) Compile serial_plugin with embedded miscScript/miscSerial](README.md#b-compile-serial_plugin-with-embedded-miscscriptmiscserial)  
 
 - [B.1) Prepare compilation]()      
 - [B.2) Copy miscScript/miscSerial sources to seiscomp3 sources tree]()    
