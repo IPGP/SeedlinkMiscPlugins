@@ -1,28 +1,28 @@
 # SeedlinkMiscPlugins
 ASCII based Plugins for an easier integration of slow data in Seedlink
 
-[A) Presentation : MiscSerial and miscScript, two generalist SeedLink plugins for easy integration of slow data in Seiscomp3]()    
+[A) Presentation : MiscSerial and miscScript, two generalist SeedLink plugins for easy integration of slow data in Seiscomp3](README.md#a-presentation--miscserial-and-miscscript-two-generalist-seedlink-plugins-for-easy-integration-of-slow-data-in-seiscomp3)    
  
-- [A.1) Seiscomp3 and SeedLink]()  
-- [A.2) miscSerial and miscScript : ASCII based plugins]()
+- [A.1) Seiscomp3 and SeedLink](README.md#a1-seiscomp3-and-seedlink)  
+- [A.2) miscSerial and miscScript : ASCII based plugins](README.md#a2-miscserial-and-miscscript--ascii-based-plugins)
 
 [B) Compile serial_plugin with embedded miscScript/miscSerial](README.md#b-compile-serial_plugin-with-embedded-miscscriptmiscserial)  
 
-- [B.1) Prepare compilation]()      
-- [B.2) Copy miscScript/miscSerial sources to seiscomp3 sources tree]()    
-- [B.3) Compile serial_plugin with miscScript and miscSerial embedded]()    
+- [B.1) Prepare compilation](README.md#b1-prepare-compilation)      
+- [B.2) Copy miscScript/miscSerial sources to seiscomp3 sources tree](README.md#b2-copy-miscscriptmiscserial-sources-to-seiscomp3-sources-tree)    
+- [B.3) Compile serial_plugin with miscScript and miscSerial embedded](README.md#b3-compile-serial_plugin-with-miscscript-and-miscserial-embedded)    
 
-[C) Deploy your “new” serial_plugin to an already installed Seiscomp3]()      
+[C) Deploy your “new” serial_plugin to an already installed Seiscomp3](README.md#c-deploy-your-new-serial_plugin-to-an-already-installed-seiscomp3)      
 
-[D) How to configure your plugins]()    
+[D) How to configure your plugins](README.md#d-how-to-configure-your-plugins)    
 
-- [D.1) How to configure miscSerial plugin]()    
-- [D.2) How to configure miscScript plugin]()    
+- [D.1) How to configure miscSerial plugin](README.md#d1-how-to-configure-miscserial-plugin)    
+- [D.2) How to configure miscScript plugin](README.md#d2-how-to-configure-miscscript-plugin)    
 
-[E) Testing Examples]()  
+[E) Testing Examples](README.md#e-testing-examples)  
 
-- [E.1) MiscScript]()  
-- [E.2) MiscSerial]()
+- [E.1) MiscScript](README.md#e1-miscscript)  
+- [E.2) MiscSerial](README.md#e2-miscserial)
 
 # A) Presentation : MiscSerial and miscScript, two generalist SeedLink plugins for easy integration of slow data in Seiscomp3
 
