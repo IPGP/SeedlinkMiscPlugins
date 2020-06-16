@@ -84,8 +84,9 @@ void miscStringProtocol::handle_response(char* frame)
     tm tm_miscStringTime;//tm struct for miscString_time
     float seconds_float;
     int usec;
+    char separator;
 
-    if(sscanf(frame, "%d-%d-%d %d:%d:%f,", &tm_miscStringTime.tm_year, &tm_miscStringTime.tm_mon, &tm_miscStringTime.tm_mday, &tm_miscStringTime.tm_hour, &tm_miscStringTime.tm_min, &seconds_float)<6)
+    if(sscanf(frame, "%d-%d-%d%c%d:%d:%f", &tm_miscStringTime.tm_year, &tm_miscStringTime.tm_mon, &tm_miscStringTime.tm_mday, &separator, &tm_miscStringTime.tm_hour, &tm_miscStringTime.tm_min, &seconds_float)<6)
     {
 	    return;
     }
