@@ -229,9 +229,7 @@ void miscStringProtocol::decode_message(char* data)
 
 	while(true){
 		if(miscString_channels[idx] != NULL){
-			if(sscanf(tail, "%d", &val)!=1){//get following integer
-				logs(LOG_WARNING) <<"error parsing '" << data << "' at : " << tail << endl;
-			} else {
+			if(sscanf(tail, "%d", &val)==1){//get following integer
 				//and put it in corresponding channel vector
 				miscString_channels[idx]-> set_timemark(digitime.it, 0, digitime.quality);
 				miscString_channels[idx]->put_sample(val);
