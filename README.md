@@ -64,6 +64,7 @@ It is just comma separated fieds:
 -   The first field is the date/time : *"YYYY-mm-dd HH:MM:SS.fs"*. Note
     that fs is one or more digits representing a decimal fraction of a
     second. fs is optional.
+    In order to be more ISO 8601 compatible, it is possible to use an other character than space as separator between dd and HH. It is also accepted to have extra characters at the end of the date. So for example *2020-04-22T06:00:00Z* is also valid.
     
 -   The next fields are ASCII written integers between -2147483648 and
     2147483647 (4 bytes signed integers). Each field represents one
