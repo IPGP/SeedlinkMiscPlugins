@@ -2,7 +2,8 @@
 
 # Simple Script to generate fix rate ASCII frames and send it througth a serial port
 # pyserial library  have to be installed installed first (https://github.com/pyserial/pyserial)
-# For testing, you can use socat to get virtual serial ports
+# For testing, you can use socat to get virtual serial ports :
+# socat -d -d pty,raw,echo=0 pty,raw,echo=0
 
 ###
 import serial
