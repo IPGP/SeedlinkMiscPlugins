@@ -29,7 +29,7 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
-#include "qdefines.h"
+//#include "qdefines.h"
 #include "qtime.h"
 #include "utils.h"
 #include "cppstreams.h"

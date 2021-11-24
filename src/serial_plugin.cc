@@ -1,21 +1,15 @@
-/*****************************************************************************
- * serial_plugin.cc
- *
- * SeedLink plugin for serial digitizers
- *
- * (c) 2000 Andres Heinloo, GFZ Potsdam
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation; either version 2, or (at your option) any later
- * version. For more information, see http://www.gnu.org/
- *****************************************************************************/
-/*Modif Tristan DIDIER 01/2018 pour plugin miscSerial :
- * Add channelsNumber,flush_period, and sample_period support to configure_plugin function*/
-/*Modif Tristan DIDIER 04/2019 pour Misc_Script :
- * Add script_path and script_args*/
-/*Modif Tristan DIDIER 02/2020 pour plugin miscSerial
- * Add serial_clock_period*/
+/***************************************************************************
+ * Copyright (C) GFZ Potsdam                                               *
+ * All rights reserved.                                                    *
+ *                                                                         *
+ * GNU Affero General Public License Usage                                 *
+ * This file may be used under the terms of the GNU Affero                 *
+ * Public License version 3.0 as published by the Free Software Foundation *
+ * and appearing in the file LICENSE included in the packaging of this     *
+ * file. Please review the following information to ensure the GNU Affero  *
+ * Public License version 3.0 requirements will be met:                    *
+ * https://www.gnu.org/licenses/agpl-3.0.html.                             *
+ ***************************************************************************/
 
 #include <iostream>
 #include <iomanip>
@@ -41,7 +35,7 @@
 #include <getopt.h>
 #endif
 
-#include "qutils.h"
+#include "qtime.h"
 
 #include "confbase.h"
 #include "conf_ini.h"
@@ -52,7 +46,7 @@
 #include "serial_plugin.h"
 #include "diag.h"
 
-#define MYVERSION "2.2 (2019.210)"
+#define MYVERSION "2.2 (2021.153)"
 
 #ifndef CONFIG_FILE
 #define CONFIG_FILE "/home/sysop/config/plugins.ini"
@@ -742,8 +736,6 @@ try
     redirect_ostream(seed_log, SEEDLog(), 0);
 
     logs(LOG_NOTICE) << ident_str << " started" << endl;
-
-    init_qlib2(0);
 
     configure_plugin(config_file);
 

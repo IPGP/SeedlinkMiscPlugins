@@ -25,7 +25,7 @@
 #include <sys/stat.h>
 #include <thread>
 
-#include "qdefines.h"
+//#include "qdefines.h"
 #include "qtime.h"
 #include "utils.h"
 #include "cppstreams.h"

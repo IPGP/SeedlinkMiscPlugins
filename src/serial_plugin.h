@@ -1,21 +1,15 @@
-/***************************************************************************** 
- * serial_plugin.h
- *
- * SeedLink plugin for serial digitizers
- *
- * (c) 2000 Andres Heinloo, GFZ potsdam
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation; either version 2, or (at your option) any later
- * version. For more information, see http://www.gnu.org/
- *****************************************************************************/
-
-/*Modif Tristan DIDIER 01/2018 pour plugin miscSerial
- *  Add vars channelsNumber, flush_period, and sample_period to struct DigitizerConfig*/
-/*Modif Tristan DIDIER 04/2019 pour plugin miscScript
- *  Add vars script_path and script_args*/
-
+/***************************************************************************
+ * Copyright (C) GFZ Potsdam                                               *
+ * All rights reserved.                                                    *
+ *                                                                         *
+ * GNU Affero General Public License Usage                                 *
+ * This file may be used under the terms of the GNU Affero                 *
+ * Public License version 3.0 as published by the Free Software Foundation *
+ * and appearing in the file LICENSE included in the packaging of this     *
+ * file. Please review the following information to ensure the GNU Affero  *
+ * Public License version 3.0 requirements will be met:                    *
+ * https://www.gnu.org/licenses/agpl-3.0.html.                             *
+ ***************************************************************************/
 
 #ifndef SERIAL_PLUGIN_H
 #define SERIAL_PLUGIN_H
