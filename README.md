@@ -1,18 +1,18 @@
 # SeedlinkMiscPlugins
 ASCII based Plugins for an easier integration of slow data in Seedlink
 
-[A) Presentation : MiscSerial and miscScript, two generalist SeedLink plugins for easy integration of slow data in Seiscomp3](README.md#a-presentation--miscserial-and-miscscript-two-generalist-seedlink-plugins-for-easy-integration-of-slow-data-in-seiscomp3)    
+[A) Presentation : MiscSerial and miscScript, two generalist SeedLink plugins for easy integration of slow data in SeisComP](README.md#a-presentation--miscserial-and-miscscript-two-generalist-seedlink-plugins-for-easy-integration-of-slow-data-in-SeisComP)    
  
-- [A.1) Seiscomp3 and SeedLink](README.md#a1-seiscomp3-and-seedlink)  
+- [A.1) SeisComP and SeedLink](README.md#a1-SeisComP-and-Seedlink)  
 - [A.2) miscSerial and miscScript : ASCII based plugins](README.md#a2-miscserial-and-miscscript--ascii-based-plugins)
 
 [B) Compile serial_plugin with embedded miscScript/miscSerial](README.md#b-compile-serial_plugin-with-embedded-miscscriptmiscserial)  
 
 - [B.1) Prepare compilation](README.md#b1-prepare-compilation)      
-- [B.2) Copy miscScript/miscSerial sources to seiscomp3 sources tree](README.md#b2-copy-miscscriptmiscserial-sources-to-seiscomp3-sources-tree)    
+- [B.2) Copy miscScript/miscSerial sources to SeisComP sources tree](README.md#b2-copy-miscscriptmiscserial-sources-to-SeisComP-sources-tree)    
 - [B.3) Compile serial_plugin with miscScript and miscSerial embedded](README.md#b3-compile-serial_plugin-with-miscscript-and-miscserial-embedded)    
 
-[C) Deploy your “new” serial_plugin to an already installed Seiscomp3](README.md#c-deploy-your-new-serial_plugin-to-an-already-installed-seiscomp3)      
+[C) Deploy your “new” serial_plugin to an already installed SeisComP](README.md#c-deploy-your-new-serial_plugin-to-an-already-installed-SeisComP)      
 
 [D) How to configure your plugins](README.md#d-how-to-configure-your-plugins)    
 
@@ -24,10 +24,10 @@ ASCII based Plugins for an easier integration of slow data in Seedlink
 - [E.1) MiscScript](README.md#e1-miscscript)  
 - [E.2) MiscSerial](README.md#e2-miscserial)
 
-# A) Presentation : MiscSerial and miscScript, two generalist SeedLink plugins for easy integration of slow data in Seiscomp3
+# A) Presentation : MiscSerial and miscScript, two generalist SeedLink plugins for easy integration of slow data in SeisComP
 
 
-## A.1) Seiscomp3 and SeedLink
+## A.1) SeisComP and SeedLink
 
 *"SeisComP is likely the most widely distributed software package for
 seismological data acquisition and real-time data exchange over the
@@ -113,18 +113,19 @@ first write the interface script.
 
 ## B.1) Prepare compilation
 
-We assume here that you have already a seiscomp3 compilation chain ready on your computer : <https://github.com/SeisComP3/seiscomp3>
+We assume here that you have already a SeisComP/Seedlink compilation chain ready on your computer : <https://github.com/SeisComP/seiscomp>
+<https://github.com/SeisComP/seedlink>
 
-## B.2) Copy miscScript/miscSerial sources to seiscomp3 sources tree
+## B.2) Copy miscScript/miscSerial sources to SeisComP sources tree
 
-In the rest of this document, we will name "$SC3_SRC" the seiscomp3 source folder path, and "$SMP" the seedlinkMiscPlugins folder path.
+In the rest of this document, we will name "$SCP_SRC" the SeisComP source folder path, and "$SMP" the seedlinkMiscPlugins folder path.
 
 	$ cd $SMP/src  
-	$ cp ./* $SC3_SRC/src/seedlink/plugins/serial_plugin
+	$ cp ./* $SCP_SRC/src/base/seedlink/plugins/serial_plugin
 
 ## B.3) Compile serial_plugin with miscScript and miscSerial embedded
 
-	$ cd $SC3_SRC/build
+	$ cd $SCP_SRC/build
 	$ make serial_plugin
 
 Once compilation is finished, check if the resulting binary embed correctly miscScript and miscSerial :
@@ -134,28 +135,27 @@ Once compilation is finished, check if the resulting binary embed correctly misc
 
 should now return :
 
-    SeedLink Serial Digitizer Plugin v2.2 (2019.210)
+	SeedLink Serial Digitizer Plugin v2.2 (2021.153)
+	Supported protocols: miscScript, miscSerial, modbus, ws2300, vaisala, solar, 
+	sadc, prema, mws, hrd24, edata_r, edata, dr24
 
-	Supported protocols: miscScript, miscSerial, modbus, ws2300,
-	solar, sadc, prema,mws, hrd24, guralp2, edata_r, edata, dr24
+# C) Deploy your "new" serial_plugin to an already installed SeisComP
 
-# C) Deploy your "new" serial_plugin to an already installed Seiscomp3
+In the rest of this document, we will name "$SCP_INST" the already installed SeisComP folder path.
 
-In the rest of this document, we will name "$SC3_INST" the already installed seiscomp3 folder path.
+- Back-up and replace serial_plugin binary : 
 
-- Replace serial_plugin binary : 
-
-      $ cd $SC3_INST/share/plugins/seedlink/  
+      $ cd $SCP_INST/share/plugins/seedlink/  
       $ mv serial_plugin serial_pluginORIG  
-      $ cp $SC3_SRC/build/bin/serial_plugin .
+      $ cp $SCP_SRC/build/bin/serial_plugin .
 
 - Deploy other needed files from $SMP/others :
 
       $ cd $SMP/others
-      $ mv $SC3_INST/etc/init/seedlink.py $SC3_INST/etc/init/seedlink.pyORIG    
-      $ cp seedlink.py $SC3_INST/etc/init
-      $ cp seedlink_miscScript.xml seedlink_miscSerial.xml $SC3_INST/etc/descriptions  
-      $ cp -r miscScript miscSerial $SC3_INST/share/templates/seedlink
+      $ mv $SCP_INST/etc/init/seedlink.py $SCP_INST/etc/init/seedlink.pyORIG    
+      $ cp seedlink.py $SCP_INST/etc/init
+      $ cp seedlink_miscScript.xml seedlink_miscSerial.xml $SCP_INST/etc/descriptions  
+      $ cp -r miscScript miscSerial $SCP_INST/share/templates/seedlink
 
 -   You can now open scconfig and use miscScript and miscSerial in
     seedlink profiles.
@@ -222,13 +222,15 @@ do not forget to save, to "update-config" seedlink and to "restart" it.
 
 ## E.1) MiscScript
 
-For testing purposes, a simple script outputting (on stdout) “fake” ASCII frames at constant rate is provided : *$SC3_INST/share/templates/seedlink/miscScript/scripts/fakeScript.py*
+For testing purposes, a simple script outputting (on stdout) “fake” ASCII frames at constant rate is provided : *$SCP_INST/share/templates/seedlink/miscScript/scripts/fakeScript.py*
 
 
 ## E.2) MiscSerial
 
-For testing purposes, a simple script outputting (on serial\_port)“fake” ASCII frames at constant rate  is provided : *$SC3\_INST/share/templates/seedlink/miscSerial/scripts/fake_miscSerial.py*
+For testing purposes, a simple script outputting (on serial\_port)“fake” ASCII frames at constant rate  is provided : *$SCP\_INST/share/templates/seedlink/miscSerial/scripts/fake_miscSerial.py*
 
 This script needs pyserial library to work ( https://github.com/pyserial/pyserial).
 
-You can also use socat to set virtual serial ports.
+You can also use socat to set virtual serial ports :  
+
+	socat -d -d pty,raw,echo=0 pty,raw,echo=0
